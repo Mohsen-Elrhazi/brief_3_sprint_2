@@ -6,7 +6,11 @@
 }
 
 body{
-
+    /* background-image:url("/assets/images/frontpage_bg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position:relative;
+    top:px; */
 }
 
 :root{
@@ -22,7 +26,11 @@ nav{
     justify-content:space-between;
     align-items: center;
     padding:10px 160px;
+    margin-bottom: 60px;
+
 }
+
+
 
 nav ul{
     list-style:none;
@@ -66,10 +74,10 @@ nav button {
   display:grid;
   grid-template-columns:2fr 1fr;
   gap:10px;
-  margin:8px;
+  margin:140px 8px;
   border:1px solid black;
   padding:12px 18px;
-  width:100%;
+  width:auto;
   height:auto;
 }
 
@@ -82,52 +90,200 @@ section .contain-terrain .terrain {
     height:100%;
     margin-top:20px;
     display:grid;
-    grid-template-rows:repeat(4,1fr);
-    row-gap:1rem;
-    background-color: aqua;
+    grid-template-rows:repeat(3,1fr);
+    row-gap:0.8rem;
+    /* background-color: aqua; */
 
 }
 
-section .menu{
-    /* width:440px; */
-    width:100%;
-    height:88vh;
-    margin-top:43px;
-    padding:8px;
-    border:1px solid black;
-} 
-
 .terrain .position  {
     height: 144px;
-    background-color: #a12d2d;
-    margin:0 auto;
+    /* background-color: #a12d2d; */
+    margin:-14px auto;
     display:flex;
     flex-flow:row nowrap;
-    /* justify-content: space-between;/ */
+    gap:6px;
+    justify-content: space-between;
     align-items:center;
 }
 
 .terrain .position:nth-of-type(1) {
-    width: 72%;
+    width: 69%;
 }
 
 .terrain .position:nth-of-type(2) {
-    width: 78%;
+    width: 60%;
 }
 
 .terrain .position:nth-of-type(3) {
-    width: 84%;
+    width: 85%;
 }
 
 .terrain .position:nth-of-type(4) {
-    width: 90%;
+    width: 94%;
+    justify-content:center;
 }
 
-#card-player{
-    width: 20px;
-    height:40px;
-    background-color:green;
-    z-index:22;
+.card-player{
+    width: 130px;
+    height: 168px;
+    background-image:url("/assets/images/placeholder-card-normal-HQ.jpg");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor:pointer;
+
 }
 
+.card-player:hover{
+    filter:drop-shadow(0px  6px 10px var(--colorMain));
+    /* box-shadow: 0 0 1px 1px var(--colorMain); */
+}
+
+.defenseur #GK{
+    margin-top:8.8rem;
+}
+
+.defenseur #DF-1,#DF-4{
+    margin-bottom:3rem;
+}
+
+.milieu #ML-2{
+    margin-top:2.4rem;
+}
+
+
+/* Formation */
+section .menu #formation{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    justify-content:center;
+    align-items:center;
+} 
+
+/* style de h2 de formation */
+section .menu #formation h2{
+    letter-spacing:1px;
+}
+
+/* style du buuton de formation */
+section .menu #formation #add-players{
+    padding:14px;
+    width:60%;
+    border:none;
+    border-radius:4px;
+    background-color: var(--colorMain);
+    color:#0f0f0f;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* style de select formation */
+section .menu #select-formation{
+    width:60%;
+    padding:12px;
+    border-radius:4px;
+    border:none;
+    outline:none;
+    border:1.2px solid #757575;
+    margin-top:4px;
+    background-color: #2B2A2A;
+    transition: 0.3s ease;
+    color:#fff;
+    font-size:16px
+}
+
+
+section .menu #select-formation:hover{
+    background-color: #404040;
+}
+
+section .menu #select-formation:focus{
+    border-color:var(--colorMain);
+    background-color: #404040;
+}
+
+
+
+section .menu  {
+    width:100%;
+    height:88vh;
+    margin-top:43px;
+    padding:14px;
+    background-color:#1E1E1E;
+    border-radius:6px;
+    border:1px solid black;
+    color:#fff;
+
+}
+
+section .menu form {
+    /* width:100%;
+    height:88vh;
+    margin-top:43px;
+    padding:14px;
+    background-color:#1E1E1E;
+    border-radius:6px;
+    border:1px solid black; */
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    align-items:center ;
+    justify-content: stretch;
+    /* color:#fff; */
+} 
+
+section .menu form h3{
+    grid-column:span 2;
+    text-align:center;
+}
+
+section .menu form div{
+    /* background-color: red; */
+}
+
+section .menu form input,
+section .menu form select
+{
+    width:100%;
+    padding:12px;
+    border-radius:4px;
+    border:none;
+    outline:none;
+    border:1.2px solid #757575;
+    margin-top:4px;
+    background-color: #2B2A2A;
+    transition: 0.3s ease;
+    color:#fff;
+    font-size:16px
+}
+
+section .menu form input:hover{
+    background-color: #404040;
+}
+
+section .menu form input:focus{
+    border-color:var(--colorMain);
+    background-color: #404040;
+}
+
+
+section .menu form button{
+    /* grid-column:span 2; */
+    /* justify-self:center; */
+    padding:14px;
+    border:none;
+    border-radius:4px;
+    background-color: var(--colorMain);
+    color:#0f0f0f;
+    font-size:14px;
+    margin:auto;
+    width:100%;
+    cursor:pointer;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+}
 

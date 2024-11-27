@@ -18,35 +18,129 @@
 
       <button>Sign in</button>
     </nav>
+
     <section>
       <div class="contain-terrain">
         <div class="terrain">
           <!-- Positionnement des joueurs -->
-          <div class="position gardient">
-            <div id="card-player GK"></div>
-          </div>
-          <div class="position defenseur">
-            <div id="card-player DF-1"></div>
-            <div id="card-player DF-2"></div>
-            <div id="card-player DF-3"></div>
-            <div id="card-player DF-4"></div>
-          </div>
-          <div class="position milieu">
-            <div id="card-player ML-1"></div>
-            <div id="card-player ML-2"></div>
-            <div id="card-player ML-3"></div>
-          </div>
           <div class="position attaquant">
-            <div id="card-player AT-1"></div>
-            <div id="card-player AT-2"></div>
-            <div id="card-player AT-3"></div>
+            <div class="card-player" id="AT-1"></div>
+            <div class="card-player" id="AT-2"></div>
+            <div class="card-player" id="AT-3">AT</div>
           </div>
+
+          <div class="position milieu">
+            <div class="card-player" id="ML-1"></div>
+            <div class="card-player" id="ML-2">ML-2</div>
+            <div class="card-player" id="ML-3"></div>
+          </div>
+
+          <div class="position defenseur">
+            <div class="card-player" id="DF-1"></div>
+            <div class="card-player" id="DF-2">DF2</div>
+            <div class="card-player" id="GK"></div>
+            <div class="card-player" id="DF-3">DF3</div>
+            <div class="card-player" id="DF-4"></div>
+          </div>
+
+          <!-- <div class="position gardient">
+            <div class="card-player" id="GK"></div>
+          </div> -->
         </div>
 
         <div class="menu">
-          <h3>Entrer les informations des joueurs</h3>
+          <div id="formation">
+            <h2>Formation</h2>
+            <select id="select-formation">
+              <option value="" >Select Formation</option>
+              <option value="4-3-3">4-3-3</option>
+              <option value="4-4-2">4-4-2</option>
+            </select>
+            <button id="add-players">Add players</button>
+          </div>
+
+          <form id="form-infos">
+            <h3>Entrer les informations des joueurs</h3>
+
+            <div>
+              <label for="name">name:</label>
+              <input id="name" type="text" placeholder="Name" />
+            </div>
+
+            <div>
+              <label foe="position"> Position</label>
+              <!-- <input id="position" type="text" placeholder="Position" /> -->
+              <select>
+                <option value="Attaquant">Forward</option>
+                <option value="Defender">Defender</option>
+                <option value="Midfielder">Midfielder</option>
+                <option value="Goalkeeper">Goalkeeper</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="nationality"> Nationality</label>
+              <input id="nationality" type="text" placeholder="Nationality" />
+            </div>
+
+            <div>
+              <label for="club"> Club</label>
+              <input id="club" type="text" placeholder="Club" />
+            </div>
+
+            <div>
+              <label for="rating"> Rating</label>
+              <input type="number" placeholder="Rating" min="0" />
+            </div>
+
+            <div>
+              <label for="pace"> Pace</label>
+              <input id="pace" type="number" placeholder="Pace" min="0" />
+            </div>
+
+            <div>
+              <label for="shooting"> Shooting</label>
+              <input
+                id="shooting"
+                type="number"
+                placeholder="Shooting"
+                min="0"
+              />
+            </div>
+
+            <div>
+              <label for="passing"> Passing</label>
+              <input id="passing" type="number" placeholder="Passing" min="0" />
+            </div>
+
+            <div>
+              <label for="dribbling"> Dribbling</label>
+              <input
+                id="dribbling"
+                type="number"
+                placeholder="Dribbling"
+                min="0"
+              />
+            </div>
+
+            <div>
+              <label for="physical"> Physical</label>
+              <input
+                id="physical"
+                type="number"
+                placeholder="Physical"
+                min="0"
+              />
+            </div>
+
+            <button id="add-player" type="button">Add</button>
+            <button id="change-formation" type="button">Change formation</button>
+          </form>
+          
         </div>
       </div>
     </section>
+
+    <script src="script.js"></script>
   </body>
 </html>
