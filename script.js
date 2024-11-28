@@ -125,35 +125,46 @@ btnChangeFormation.addEventListener("click",function(){
     formation.style.display="flex"
 })
 
+// recuperer les values de player de form
+let name=document.getElementById("name")
+let position=document.getElementById("position")
+let nationality=document.getElementById("nationality")
+let club=document.getElementById("club")
+let rating=document.getElementById("rating")
+let pace=document.getElementById("pace")
+let shooting=document.getElementById("shooting")
+let passing=document.getElementById("passing")
+let dribbling=document.getElementById("dribbling")
+let physical=document.getElementById("physical")
+
+
+
+
 
 // Add player a la carte de terrain
 let btnAddPlayer=document.getElementById("add-player")
 
 btnAddPlayer.addEventListener("click",function(){
     // attaquant3.style.backgroundImage="url('./assets/images/badge_gold.webp')"
-    attaquant3.classList.add("card-gold")
+    // attaquant3.classList.add("card-gold")
 
     // let caractPlayer=document.createElement("div")
     // caractPlayer.classList.add("caracteristiquePlayer")
     // attaquant3.appendChild(caractPlayer)
 
-    let img=document.createElement("img")
-    img.setAttribute("src","./assets/images/12_icon.png")
-    img.style.width = "60px";  // Par exemple, une largeur fixe de 50px
-img.style.height = "60px"; // Par exemple, une hauteur fixe de 50px
-img.style.objectFit = "contain"; // Cette propriété garantit que l'image conserve ses proportions
+    // les infos de cards
 
-    attaquant3.appendChild(img)
-
+    cardPlayers[0].textContent=name.value
     
+
+        // let divImgName = document.createElement("div")
+
+        // let imgPlayer = document.createElement("img")
+        // imgPlayer.setAttribute("src", "./assets/images/messi.png")
+
+        // divImgName.appendChild(imgPlayer)
+        // attaquant3.appendChild(divImgName)
+
 })
-
-
-
-
-
-
-
-
 
 

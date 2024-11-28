@@ -68,15 +68,40 @@
             </div>
 
             <div>
-              <label foe="position"> Position</label>
-              <!-- <input id="position" type="text" placeholder="Position" /> -->
-              <select>
-                <option value="Attaquant">Forward</option>
-                <option value="Defender">Defender</option>
-                <option value="Midfielder">Midfielder</option>
-                <option value="Goalkeeper">Goalkeeper</option>
-              </select>
+              <label for="position"> Position</label>
+              <select id="position">
+                <optgroup label="Goalkeeper">
+                  <option value="GK">Goalkeeper (GK)</option>
+                </optgroup>
+                <optgroup label="Defender">
+                  <option value="CB">Center Back (CB)</option>
+                  <option value="LB">Left Back (LB)</option>
+                  <option value="RB">Right Back (RB)</option>
+                  <option value="WB">Wing Back (WB)</option>
+                </optgroup>
+                <optgroup label="Midfielder">
+                  <option value="DM">Defensive Midfield (DM)</option>
+                  <option value="CM">Central Midfield (CM)</option>
+                  <option value="AM">Attacking Midfield (AM)</option>
+                </optgroup>
+                <optgroup label="Forward">
+                  <option value="ST">Striker (ST)</option>
+                  <option value="LW">Left Wing (LW)</option>
+                  <option value="RW">Right Wing (RW)</option>
+                </optgroup>
+              </select>              
+
             </div>
+                 
+              <div>
+               <select>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+              </div>
+               
 
             <div>
               <label for="nationality"> Nationality</label>
@@ -90,7 +115,7 @@
 
             <div>
               <label for="rating"> Rating</label>
-              <input type="number" placeholder="Rating" min="0" />
+              <input id="rating" type="number" placeholder="Rating" min="0" />
             </div>
 
             <div>

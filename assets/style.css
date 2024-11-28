@@ -236,7 +236,7 @@ section .menu #select-formation:focus{
 
 section .menu  {
     width:100%;
-    height:88vh;
+    min-height:88vh;
     margin-top:43px;
     padding:14px;
     background-color:#1E1E1E;
@@ -247,16 +247,9 @@ section .menu  {
 }
 
 section .menu form {
-    /* width:100%;
-    height:88vh;
-    margin-top:43px;
-    padding:14px;
-    background-color:#1E1E1E;
-    border-radius:6px;
-    border:1px solid black; */
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:30px;
+    gap:20px;
     align-items:center ;
     justify-content: stretch;
     /* color:#fff; */
@@ -318,7 +311,7 @@ section .menu form button{
 .card-gold{
     background-image:url("./images/badge_gold.webp");
     background-position: center;
-    background-size: cover;
+    /* background-size: cover; */
 }
 
 
