@@ -128,19 +128,22 @@ section .contain-terrain .terrain {
     position:relative;
     width: 130px;
     height: 176px;
+    padding:19px 4px 4px;
     background-image:url("/assets/images/placeholder-card-normal-HQ.jpg");
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
     cursor:pointer;
     transition: all 0.7s ease;
-    /* background-color:red; */
-    display:grid;
-    grid-template-rows:repeat(6,1fr);
-    gap:4px;
+    background-color:red;
+   /*  display:grid;*/
+    grid-template-rows:50% 40%; 
+
+    row-gap:4px;
+    color:#fff;
 }
 
-.card-player div{
+.card-player .post{
     position:absolute;
     /* background-color: black; */
      background-image: url("./images/pos_base.png");
@@ -154,11 +157,44 @@ section .contain-terrain .terrain {
     left:50%;
     transform: translate(-50%);
     bottom:-30px;
-    
-   
-  
+    z-index:4
 }
 
+.card-player .image-name {
+    background-color: green;
+    width: 100%;
+    display:flex;
+    flex-direction: column-reverse;
+    align-items:center;
+    gap:2px;
+}
+
+.card-player .info {
+    background-color: blue;
+    width: 90%;
+    margin:0 auto;
+    padding:4px;
+    border-radius:6px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:center;
+    gap:3px;
+}
+
+.card-player .info p{
+    width:26%;
+    /* background-color: red; */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:9px;
+}
+
+.card-player .flags {
+    background-color: pink;
+    width: 100%;
+}
 
 
 .card-player:hover{
