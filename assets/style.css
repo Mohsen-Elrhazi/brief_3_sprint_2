@@ -128,19 +128,26 @@ section .contain-terrain .terrain {
     position:relative;
     width: 130px;
     height: 176px;
-    padding:19px 4px 4px;
+    /* padding:14px 2px 2px; */
+    padding:2px;
     background-image:url("/assets/images/placeholder-card-normal-HQ.jpg");
+    /* background-image:url("/assets/images/badge_gold.webp"); */
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
     cursor:pointer;
     transition: all 0.7s ease;
     background-color:red;
-   /*  display:grid;*/
-    grid-template-rows:50% 40%; 
+}
 
-    row-gap:4px;
+.new-card-player{
+    width:100%;
+    display:grid;
+    grid-template-rows:76% 36% 26%; 
+    /* row-gap:2px; */
     color:#fff;
+    /* padding:6px 2px 2px; */
+
 }
 
 .card-player .post{
@@ -160,16 +167,18 @@ section .contain-terrain .terrain {
     z-index:4
 }
 
-.card-player .image-name {
-    background-color: green;
+.image-name {
+    /* background-color: green; */
     width: 100%;
+    /* margin:0 auto; */
     display:flex;
     flex-direction: column-reverse;
     align-items:center;
     gap:2px;
+    font-size:12px;
 }
 
-.card-player .info {
+.info {
     background-color: blue;
     width: 90%;
     margin:0 auto;
@@ -182,17 +191,17 @@ section .contain-terrain .terrain {
     gap:3px;
 }
 
-.card-player .info p{
+.info p{
     width:26%;
     /* background-color: red; */
     display:flex;
     flex-direction: column;
     align-items: center;
-    font-size:9px;
+    font-size:8px;
 }
 
-.card-player .flags {
-    background-color: pink;
+.flags {
+    /* background-color: pink; */
     width: 100%;
 }
 

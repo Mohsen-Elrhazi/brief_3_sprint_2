@@ -10,117 +10,47 @@ btnAddPlayers.addEventListener("click", function () {
   formation.style.display = "none";
 });
 
-// Recuperer tous les card-players
-let cardPlayers = document.querySelectorAll(".card-player");
-//structurer la card player
-cardPlayers.forEach((element) => {
-  //div de image et name
-  let divImgName = document.createElement("div");
-  divImgName.classList.add("image-name");
+// button changer formation dans la form pour retour a la partie de formation
+let btnChangeFormation = document.getElementById("change-formation");
 
-  let name = document.createElement("p");
-  name.textContent = "Messi";
-  divImgName.appendChild(name);
-
-  let imgPlayer = document.createElement("img");
-  imgPlayer.setAttribute("src", "./assets/images/messi.png");
-  imgPlayer.style.width = "60px";
-  // imgPlayer.style.order="1"
-
-  divImgName.appendChild(imgPlayer);
-
-  //creer deuxieme div de infos player
-  let divInfos = document.createElement("div");
-  divInfos.classList.add("info");
-
-  // Créer le premier paragraphe
-  let p1 = document.createElement("p");
-  p1.textContent = "PAC"; 
-  let span1 = document.createElement("span");
-  span1.textContent = "0"; 
-  p1.appendChild(span1);
-  divInfos.appendChild(p1);
-
-  // Créer le deuxième paragraphe
-  let p2 = document.createElement("p");
-  p2.textContent = "SHO"; 
-  let span2 = document.createElement("span");
-  span2.textContent = "0"; 
-  p2.appendChild(span2);
-  divInfos.appendChild(p2);
-
-  // Créer le troisième paragraphe
-  let p3 = document.createElement("p");
-  p3.textContent = "PAS"; 
-  let span3 = document.createElement("span");
-  span3.textContent = "0";
-  p3.appendChild(span3);
-  divInfos.appendChild(p3);
-
-  // Créer le quatrième paragraphe
-  let p4 = document.createElement("p");
-  p4.textContent = "DRI"; 
-  let span4 = document.createElement("span");
-  span4.textContent = "0";
-  p4.appendChild(span4);
-  divInfos.appendChild(p4);
-
-  // Créer le cinquième paragraphe
-  let p5 = document.createElement("p");
-  p5.textContent = "DEF"; 
-  let span5 = document.createElement("span");
-  span5.textContent = "0"; 
-  p5.appendChild(span5);
-  divInfos.appendChild(p5);
-
-  // Créer le sixième paragraphe
-  let p6 = document.createElement("p");
-  p6.textContent = "PHY";
-  let span6 = document.createElement("span");
-  span6.textContent = "0";
-  p6.appendChild(span6);
-  divInfos.appendChild(p6);
-
-  // div flags
-  let divFlags = document.createElement("div");
-  divFlags.classList.add("flags");
-
-  element.style.display = "grid";
-
-  element.appendChild(divImgName);
-  element.appendChild(divInfos);
-  element.appendChild(divFlags);
+btnChangeFormation.addEventListener("click", function () {
+  formInfos.style.display = "none";
+  formation.style.display = "flex";
 });
+
 
 // Recuperer (select) pour la formation
 let selectFormation = document.getElementById("select-formation");
+
+// recuperer card palyers
+let cardPlayers=document.querySelectorAll(".card-player")
 
 // Recuperer la position des attaquants
 let positionAttaquant = document.querySelector(".attaquant");
 
 //recuperer AT-3
-let attaquant3 = document.getElementById("AT-3");
+let attaquant3 = document.getElementById("RW");
 
 // Recuperer la position milieu
 let positionMilieu = document.querySelector(".milieu");
 
 //recuperer ML-1
-let milieu1 = document.getElementById("ML-1");
+let milieu1 = document.getElementById("CM-1");
 
 //recuperer ML-2
-let milieu2 = document.getElementById("ML-2");
+let milieu2 = document.getElementById("CM-2");
 
 //recuperer ML-3
-let milieu3 = document.getElementById("ML-3");
+let milieu3 = document.getElementById("CM-3");
 
 //recuperer GK
 let gardient = document.getElementById("GK");
 
 //recuperer DF-2
-let defenseur2 = document.getElementById("DF-2");
+let defenseur2 = document.getElementById("CB-2");
 
 //recuperer DF-3
-let defenseur3 = document.getElementById("DF-3");
+let defenseur3 = document.getElementById("CB-3");
 
 // masquer les cards au debut
 cardPlayers.forEach((element) => {
@@ -188,16 +118,9 @@ selectFormation.addEventListener("change", function () {
   }
 });
 
-// button changer formation dans la form pour retour a la partie de formation
-let btnChangeFormation = document.getElementById("change-formation");
 
-btnChangeFormation.addEventListener("click", function () {
-  formInfos.style.display = "none";
-  formation.style.display = "flex";
-});
-
-// recuperer les values de player de form
-let name = document.getElementById("name");
+// Récupérer les valeurs du formulaire du joueur
+let namePlayer = document.getElementById("name");
 let position = document.getElementById("position");
 let nationality = document.getElementById("nationality");
 let club = document.getElementById("club");
@@ -208,7 +131,99 @@ let passing = document.getElementById("passing");
 let dribbling = document.getElementById("dribbling");
 let physical = document.getElementById("physical");
 
-// Add player a la carte de terrain
+//! fonction pour creer new card player
+
+function createCardPlayer(){
+  // Créer une nouvelle carte pour le joueur
+  let newCard = document.createElement("div");
+  newCard.classList.add("new-card-player");
+
+  // Div pour l'image et le nom
+  let divImgName = document.createElement("div");
+  divImgName.classList.add("image-name");//!
+
+  let namePl = document.createElement("p");
+  namePl.textContent = namePlayer.value; // Affecter le nom du joueur
+  divImgName.appendChild(namePl);
+
+  let imgPlayer = document.createElement("img");
+  imgPlayer.setAttribute("src", "./assets/images/messi.png"); // Exemple pour l'image 
+  imgPlayer.style.width = "60px";
+  divImgName.appendChild(imgPlayer);
+
+  // Div pour les informations du joueur
+  let divInfos = document.createElement("div");
+  divInfos.classList.add("info");//!
+
+  // Ajouter les statistiques
+  let p1 = document.createElement("p");
+  p1.textContent = "PAC";
+  let span1 = document.createElement("span");
+  span1.textContent = pace.value; // Affecter la valeur de PAC
+  p1.appendChild(span1);
+  divInfos.appendChild(p1);
+
+  let p2 = document.createElement("p");
+  p2.textContent = "SHO";
+  let span2 = document.createElement("span");
+  span2.textContent = shooting.value; // Affecter la valeur de SHO
+  p2.appendChild(span2);
+  divInfos.appendChild(p2);
+
+  let p3 = document.createElement("p");
+  p3.textContent = "PAS";
+  let span3 = document.createElement("span");
+  span3.textContent = passing.value; // Affecter la valeur de PAS
+  p3.appendChild(span3);
+  divInfos.appendChild(p3);
+
+  let p4 = document.createElement("p");
+  p4.textContent = "DRI";
+  let span4 = document.createElement("span");
+  span4.textContent = dribbling.value; // Affecter la valeur de DRI
+  p4.appendChild(span4);
+  divInfos.appendChild(p4);
+
+  let p5 = document.createElement("p");
+  p5.textContent = "DEF";
+  let span5 = document.createElement("span");
+  span5.textContent = "0"; // Par défaut, vous pouvez ajouter une valeur statique pour la défense
+  p5.appendChild(span5);
+  divInfos.appendChild(p5);
+
+  let p6 = document.createElement("p");
+  p6.textContent = "PHY";
+  let span6 = document.createElement("span");
+  span6.textContent = physical.value; // Affecter la valeur de PHY
+  p6.appendChild(span6);
+  divInfos.appendChild(p6);
+
+  // creer div de flags
+  let divFlags=document.createElement("div")
+  divFlags.classList.add("flags")
+
+
+  // Ajouter tout à la carte
+  newCard.appendChild(divImgName);
+  newCard.appendChild(divInfos);
+  newCard.appendChild(divFlags);
+
+  return newCard
+}
+
+
+// Bouton pour ajouter un joueur
 let btnAddPlayer = document.getElementById("add-player");
 
-btnAddPlayer.addEventListener("click", function () {});
+//! Fonction pour ajouter un joueur à la carte de terrain
+btnAddPlayer.addEventListener("click", function () {
+  let newCard = createCardPlayer();
+  let post = document.getElementById(position.value); 
+  if (post) {
+      position.appendChild(newCard); 
+  } else {
+      console.error("Position invalide : " + position.value);
+  }
+   post.innerHTML = ""
+});
+
