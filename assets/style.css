@@ -6,10 +6,10 @@
 }
 
 body{
-    /* background-image:url("/assets/images/frontpage_bg.png");
+    background-image:url("/assets/images/couts-stades-tottenham-stadium-scaled.jpg");
     background-repeat: no-repeat;
     background-size: contain;
-    position:relative;
+  /*   position:relative;
     top:px; */
 }
 
@@ -125,15 +125,41 @@ section .contain-terrain .terrain {
 }
 
 .card-player{
+    position:relative;
     width: 130px;
-    height: 168px;
+    height: 176px;
     background-image:url("/assets/images/placeholder-card-normal-HQ.jpg");
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
     cursor:pointer;
-
+    transition: all 0.7s ease;
+    /* background-color:red; */
+    display:grid;
+    grid-template-rows:repeat(6,1fr);
+    gap:4px;
 }
+
+.card-player div{
+    position:absolute;
+    /* background-color: black; */
+     background-image: url("./images/pos_base.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;;
+    color:#fff;
+    padding:16px;
+    border-radius:40%;
+    font-size:14px;
+    left:50%;
+    transform: translate(-50%);
+    bottom:-30px;
+    
+   
+  
+}
+
+
 
 .card-player:hover{
     filter:drop-shadow(0px  6px 10px var(--colorMain));
@@ -287,3 +313,19 @@ section .menu form button{
     letter-spacing: 1px;
 }
 
+
+/*  */
+.card-gold{
+    background-image:url("./images/badge_gold.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* styler la partie des caracteristique player dans la card */
+.caracteristiquePlayer{
+    width:100%;
+    height:auto;
+    display:flex;
+    background-color:red;
+}

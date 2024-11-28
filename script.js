@@ -126,6 +126,27 @@ btnChangeFormation.addEventListener("click",function(){
 })
 
 
+// Add player a la carte de terrain
+let btnAddPlayer=document.getElementById("add-player")
+
+btnAddPlayer.addEventListener("click",function(){
+    // attaquant3.style.backgroundImage="url('./assets/images/badge_gold.webp')"
+    attaquant3.classList.add("card-gold")
+
+    // let caractPlayer=document.createElement("div")
+    // caractPlayer.classList.add("caracteristiquePlayer")
+    // attaquant3.appendChild(caractPlayer)
+
+    let img=document.createElement("img")
+    img.setAttribute("src","./assets/images/12_icon.png")
+    img.style.width = "60px";  // Par exemple, une largeur fixe de 50px
+img.style.height = "60px"; // Par exemple, une hauteur fixe de 50px
+img.style.objectFit = "contain"; // Cette propriété garantit que l'image conserve ses proportions
+
+    attaquant3.appendChild(img)
+
+    
+})
 
 
 
