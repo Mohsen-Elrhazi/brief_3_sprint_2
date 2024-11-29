@@ -122,8 +122,8 @@ selectFormation.addEventListener("change", function () {
 // Récupérer les valeurs du formulaire du joueur
 let namePlayer = document.getElementById("name");
 let post = document.getElementById("post");
-let nationality = document.getElementById("nationality");
-let club = document.getElementById("club");
+let nationality = document.getElementById("flag-country");
+let club = document.getElementById("flag-club");
 let rating = document.getElementById("rating");
 let pace = document.getElementById("pace");
 let shooting = document.getElementById("shooting");
@@ -131,15 +131,54 @@ let passing = document.getElementById("passing");
 let dribbling = document.getElementById("dribbling");
 let deffensing=document.getElementById("deffensing")
 let physical = document.getElementById("physical");
+let imagePlayer=document.getElementById("image-player")
+
+// recuperer id reservation
+let 
+reservation=document.getElementById("reservation")
+
+var GK=0
 
 //! fonction pour creer new card player
 
 function createCardPlayer(){
-  // Créer une nouvelle carte pour le joueur
+  // Creer une nouvelle carte pour le joueur
   let newCard = document.createElement("div");
   newCard.classList.add("new-card-player");
 
-  // Div pour l'image et le nom
+  //! div contain
+  let divContain=document.createElement("div")
+  divContain.classList.add("divContain")
+
+ 
+  //! div Rating Club Country
+   let divRatingClubCountry=document.createElement("div")
+   divRatingClubCountry.classList.add("ratingCountryClub")
+  //  span rating
+   let spanRating=document.createElement("span")
+   spanRating.textContent=rating.value
+   divRatingClubCountry.appendChild(spanRating)
+
+  //  image country  
+  let flagImageUrl = nationality.value;
+  let imgCountry = document.createElement("img");
+  imgCountry.src = flagImageUrl;
+  imgCountry.style.width="20px"
+
+   //image club
+   let clubImageUrl=club.value
+   let imgClub=document.createElement("img")
+   imgClub.src=clubImageUrl
+   imgClub.style.width="20px"
+   
+   divRatingClubCountry.appendChild(spanRating)
+   divRatingClubCountry.appendChild(imgCountry);
+   divRatingClubCountry.appendChild(imgClub)
+
+   
+
+
+  //! div image et name
   let divImgName = document.createElement("div");
   divImgName.classList.add("image-name");//!
 
@@ -147,10 +186,17 @@ function createCardPlayer(){
   namePl.textContent = namePlayer.value; 
   divImgName.appendChild(namePl);
 
-  let imgPlayer = document.createElement("img");
-  imgPlayer.setAttribute("src", "./assets/images/messi.png"); 
-  imgPlayer.style.width = "60px";
-  divImgName.appendChild(imgPlayer);
+  // image player
+  let imagePlayerUrl=imagePlayer.value
+  let imgPlayer=document.createElement("img")
+  imgPlayer.src=imagePlayerUrl
+  imgPlayer.style.width = "70px";
+  divImgName.appendChild(imgPlayer)
+
+  divContain.appendChild(divRatingClubCountry)
+  divContain.appendChild(divImgName)
+
+
 
   // Div pour les informations du joueur
   let divInfos = document.createElement("div");
@@ -199,27 +245,15 @@ function createCardPlayer(){
   p6.appendChild(span6);
   divInfos.appendChild(p6);
 
-  // creer div de flags
-  let divFlags=document.createElement("div")
-  divFlags.classList.add("flags")
-
-   let imgClub=document.createElement("img")
-   imgClub.setAttribute("src","/assets/images/inter miami.webp")
-   imgClub.style.width="18px"
-
-   let imgCountry=document.createElement("img")
-   imgCountry.setAttribute("src","/assets/images/ar.webp")
-   imgCountry.style.width="18px"
-
-   divFlags.appendChild(imgClub)
-   divFlags.appendChild(imgCountry)
-
-
   // Ajouter tout à la carte
-  newCard.appendChild(divImgName);
+  newCard.appendChild(divContain);
   newCard.appendChild(divInfos);
-  // newCard.appendChild(divFlags);
 
+
+  newCard.style.backgroundImage='url("/assets/images/gold-card.png")'
+  newCard.style.backgroundPosition = 'center'; 
+  newCard.style.backgroundSize = 'contain'; 
+ newCard.style.backgroundRepeat = 'no-repeat';
   return newCard
 }
 
@@ -229,20 +263,13 @@ let btnAddPlayer = document.getElementById("add-player");
 
 //! Fonction pour ajouter un joueur à la carte de terrain
 btnAddPlayer.addEventListener("click", function () {
-  let newCard = createCardPlayer();
-  alert(rating.value)
-  
+  let newCard = createCardPlayer();  
  if(!namePlayer.value || !post.value || !nationality.value || !club.value || !rating.value || !pace.value || !shooting.value || !passing.value || !dribbling.value || !deffensing.value || !physical.value){
   alert("Veuillez remplir tous les champs ")
  }else{
   switch(post.value){
     case "GK":document.getElementById("GK").appendChild(newCard)
-    document.getElementById("GK").backgroundImage='url("")'
-   newCard.style.backgroundImage='url("/assets/images/gold-card.png")'
-   newCard.style.backgroundPosition = 'center'; 
-   newCard.style.backgroundSize = 'cover'; 
-  newCard.style.backgroundRepeat = 'no-repeat'; 
-             break;
+                 break;
     case "CB":document.getElementById("CB").appendChild(newCard)
              break;
     case "WB":document.getElementById("WB").appendChild(newCard)
