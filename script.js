@@ -129,6 +129,7 @@ let pace = document.getElementById("pace");
 let shooting = document.getElementById("shooting");
 let passing = document.getElementById("passing");
 let dribbling = document.getElementById("dribbling");
+let deffensing=document.getElementById("deffensing")
 let physical = document.getElementById("physical");
 
 //! fonction pour creer new card player
@@ -143,11 +144,11 @@ function createCardPlayer(){
   divImgName.classList.add("image-name");//!
 
   let namePl = document.createElement("p");
-  namePl.textContent = namePlayer.value; // Affecter le nom du joueur
+  namePl.textContent = namePlayer.value; 
   divImgName.appendChild(namePl);
 
   let imgPlayer = document.createElement("img");
-  imgPlayer.setAttribute("src", "./assets/images/messi.png"); // Exemple pour l'image 
+  imgPlayer.setAttribute("src", "./assets/images/messi.png"); 
   imgPlayer.style.width = "60px";
   divImgName.appendChild(imgPlayer);
 
@@ -159,58 +160,65 @@ function createCardPlayer(){
   let p1 = document.createElement("p");
   p1.textContent = "PAC";
   let span1 = document.createElement("span");
-  span1.textContent = pace.value; // Affecter la valeur de PAC
+  span1.textContent = pace.value; 
   p1.appendChild(span1);
   divInfos.appendChild(p1);
 
   let p2 = document.createElement("p");
   p2.textContent = "SHO";
   let span2 = document.createElement("span");
-  span2.textContent = shooting.value; // Affecter la valeur de SHO
+  span2.textContent = shooting.value; 
   p2.appendChild(span2);
   divInfos.appendChild(p2);
 
   let p3 = document.createElement("p");
   p3.textContent = "PAS";
   let span3 = document.createElement("span");
-  span3.textContent = passing.value; // Affecter la valeur de PAS
+  span3.textContent = passing.value; 
   p3.appendChild(span3);
   divInfos.appendChild(p3);
 
   let p4 = document.createElement("p");
   p4.textContent = "DRI";
   let span4 = document.createElement("span");
-  span4.textContent = dribbling.value; // Affecter la valeur de DRI
+  span4.textContent = dribbling.value; 
   p4.appendChild(span4);
   divInfos.appendChild(p4);
 
   let p5 = document.createElement("p");
   p5.textContent = "DEF";
   let span5 = document.createElement("span");
-  span5.textContent = "0"; // Par défaut, vous pouvez ajouter une valeur statique pour la défense
+  span5.textContent=deffensing.value
   p5.appendChild(span5);
   divInfos.appendChild(p5);
 
   let p6 = document.createElement("p");
   p6.textContent = "PHY";
   let span6 = document.createElement("span");
-  span6.textContent = physical.value; // Affecter la valeur de PHY
+  span6.textContent = physical.value;
   p6.appendChild(span6);
   divInfos.appendChild(p6);
 
   // creer div de flags
   let divFlags=document.createElement("div")
   divFlags.classList.add("flags")
+
    let imgClub=document.createElement("img")
    imgClub.setAttribute("src","/assets/images/inter miami.webp")
-   imgClub.style.width="20px"
+   imgClub.style.width="18px"
+
+   let imgCountry=document.createElement("img")
+   imgCountry.setAttribute("src","/assets/images/ar.webp")
+   imgCountry.style.width="18px"
+
    divFlags.appendChild(imgClub)
+   divFlags.appendChild(imgCountry)
 
 
   // Ajouter tout à la carte
   newCard.appendChild(divImgName);
   newCard.appendChild(divInfos);
-  newCard.appendChild(divFlags);
+  // newCard.appendChild(divFlags);
 
   return newCard
 }
@@ -222,43 +230,41 @@ let btnAddPlayer = document.getElementById("add-player");
 //! Fonction pour ajouter un joueur à la carte de terrain
 btnAddPlayer.addEventListener("click", function () {
   let newCard = createCardPlayer();
-
-  // let positionContainer = document.getElementById(position.value); 
-  // if (positionContainer) {
-  //     positionContainer.appendChild(newCard); 
-  // } else {
-  //     console.error("Position invalide : " + position.value);
-  // }
-  //  positionContainer.innerHTML = ""
-  if(post.value==="GK"){
-    document.getElementById("GK").appendChild(newCard)
+  alert(rating.value)
+  
+ if(!namePlayer.value || !post.value || !nationality.value || !club.value || !rating.value || !pace.value || !shooting.value || !passing.value || !dribbling.value || !deffensing.value || !physical.value){
+  alert("Veuillez remplir tous les champs ")
+ }else{
+  switch(post.value){
+    case "GK":document.getElementById("GK").appendChild(newCard)
+    document.getElementById("GK").backgroundImage='url("")'
+   newCard.style.backgroundImage='url("/assets/images/gold-card.png")'
+   newCard.style.backgroundPosition = 'center'; 
+   newCard.style.backgroundSize = 'cover'; 
+  newCard.style.backgroundRepeat = 'no-repeat'; 
+             break;
+    case "CB":document.getElementById("CB").appendChild(newCard)
+             break;
+    case "WB":document.getElementById("WB").appendChild(newCard)
+             break;
+    case "LB":document.getElementById("LB").appendChild(newCard)
+             break;
+    case "RB":document.getElementById("RB").appendChild(newCard)
+             break;
+    case "CM":document.getElementById("CM").appendChild(newCard)
+             break;
+    case "LM":document.getElementById("LM").appendChild(newCard)
+             break;
+    case "RM":document.getElementById("RM").appendChild(newCard)
+             break;
+    case "ST":document.getElementById("ST").appendChild(newCard)
+             break;
+    case "RW":document.getElementById("RW").appendChild(newCard)
+             break;
+    case "LW":document.getElementById("LW").appendChild(newCard)
+             break;
   }
-  else if(post.value==="CB"){
-    document.getElementById("CB").appendChild(newCard)
-  }else if(post.value==="WB"){
-    document.getElementById("WB").appendChild(newCard)
-  }else if(post.value==="LB"){
-    document.getElementById("LB").appendChild(newCard)
-  }else if(post.value==="RB"){
-    document.getElementById("RB").appendChild(newCard)
-  }
-
-  else if(post.value==="CM"){
-    document.getElementById("CM").appendChild(newCard)
-  }else if(post.value==="RM"){
-    document.getElementById("RM").appendChild(newCard)
-  }else if(post.value==="LM"){
-    document.getElementById("LM").appendChild(newCard)
-  }
-
-  else if(post.value==="LW"){
-    document.getElementById("LW").appendChild(newCard)
-  }else if(post.value==="RW"){
-    document.getElementById("RW").appendChild(newCard)
-  }
-  else if(post.value==="ST"){
-    document.getElementById("ST").appendChild(newCard)
-  }
+}
     
 });
 
