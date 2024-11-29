@@ -92,7 +92,7 @@
               <label for="post">Position</label>
               <select id="post">
                 <optgroup label="Goalkeeper">
-                  <option value="GK">Goalkeeper (GK)</option>
+                  <option value="GK" selected>Goalkeeper (GK)</option>
                 </optgroup>
                 <optgroup label="Defender">
                   <option value="CB">Center Back (CB)</option>
@@ -164,12 +164,15 @@
               <label for="rating"> Rating</label>
               <input id="rating" type="number" placeholder="Rating" min="0" />
             </div>
-
+           <!--todo proprite de player -->
+           <span id="normal-player">
             <div>
               <label for="pace"> Pace</label>
               <input id="pace" type="number" placeholder="Pace" min="0" />
             </div>
-
+          </span>
+             
+          <span id="normal-player">
             <div>
               <label for="shooting"> Shooting</label>
               <input
@@ -179,12 +182,16 @@
                 min="0"
               />
             </div>
-
+          </span>
+            
+          <span id="normal-player">
             <div>
               <label for="passing"> Passing</label>
               <input id="passing" type="number" placeholder="Passing" min="0" />
             </div>
-
+          </span>
+            
+             <span id="normal-player">
             <div>
               <label for="dribbling"> Dribbling</label>
               <input
@@ -194,12 +201,16 @@
                 min="0"
               />
             </div>
+          </span>
              
+            <span id="normal-player">
             <div>
             <label for="deffensing"> Deffensing</label>
             <input id="deffensing" type="number" placeholder="deffensing" min="0" />
           </div>
+           </span>
 
+           <span id="normal-player">
             <div>
               <label for="physical"> Physical</label>
               <input
@@ -209,6 +220,61 @@
                 min="0"
               />
             </div>
+          </span>
+
+            <!--todo propriete de gardient -->
+            <span id="propriete-GK">
+            <div>
+              <label for="diving"> Diving</label>
+              <input id="diving" type="number" placeholder="Diving" min="0" />
+            </div></span>
+            
+            <span id="propriete-GK">
+            <div>
+              <label for="handling"> Handling</label>
+              <input
+                id="handling"
+                type="number"
+                placeholder="Handling"
+                min="0"
+              />
+            </div></span>
+             
+            <span id="propriete-GK">
+            <div>
+              <label for="kicking"> Kicking</label>
+              <input id="kicking" type="number" placeholder="Kicking" min="0" />
+            </div></span>
+
+            <span id="propriete-GK">
+            <div>
+              <label for="reflexes"> Reflexes</label>
+              <input
+                id="reflexes"
+                type="number"
+                placeholder="Reflexes"
+                min="0"
+              />
+            </div></span>
+             
+            <span id="propriete-GK">
+            <div>
+            <label for="speed"> Speed</label>
+            <input id="speed" type="number" placeholder="Speed" min="0" />
+          </div></span>
+
+          <span id="propriete-GK">
+            <div>
+              <label for="positioning"> Positioning</label>
+              <input
+                id="positioning"
+                type="number"
+                placeholder="Positioning"
+                min="0"
+              />
+            </div></span>
+
+            <!--todo fin prp gardient -->
 
             <button id="add-player" type="button">Add</button>
             <button id="change-formation" type="button">Change formation</button>

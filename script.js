@@ -18,6 +18,29 @@ btnChangeFormation.addEventListener("click", function () {
   formation.style.display = "flex";
 });
 
+//! Propriete player et gardient
+ document.querySelectorAll("#normal-player").forEach(element =>{
+    element.style.display="none"
+ })
+document.getElementById("post").addEventListener("change",function(){
+  if(document.getElementById("post").value==="GK"){
+  document.querySelectorAll("#normal-player").forEach(element =>{
+    element.style.display="none"
+})
+    document.querySelectorAll("#propriete-GK").forEach(element =>{
+    element.style.display="block"
+    })
+  }else{
+    document.querySelectorAll("#normal-player").forEach(element =>{
+      element.style.display="block"
+  })
+      document.querySelectorAll("#propriete-GK").forEach(element =>{
+      element.style.display="none"
+      })
+  }
+})
+
+
 
 // Recuperer (select) pour la formation
 let selectFormation = document.getElementById("select-formation");
@@ -133,6 +156,8 @@ let deffensing=document.getElementById("deffensing")
 let physical = document.getElementById("physical");
 let imagePlayer=document.getElementById("image-player")
 
+// !todo 
+
 // recuperer id reservation
 let 
 reservation=document.getElementById("reservation")
@@ -202,11 +227,21 @@ function createCardPlayer(){
   let divInfos = document.createElement("div");
   divInfos.classList.add("info");//!
 
-  // Ajouter les statistiques
+  //! Ajouter les statistiques
+  
   let p1 = document.createElement("p");
-  p1.textContent = "PAC";
+  // p1.textContent = "PAC";
   let span1 = document.createElement("span");
-  span1.textContent = pace.value; 
+  // span1.textContent = pace.value; 
+  // p1.appendChild(span1);
+  // divInfos.appendChild(p1);
+  if(document.getElementById("post").value==="GK"){
+    p1.textContent = "Div";
+    span1.textContent = document.getElementById("diving").value; 
+  }else{
+    p1.textContent = "PAC";
+    span1.textContent = pace.value; 
+  }
   p1.appendChild(span1);
   divInfos.appendChild(p1);
 
@@ -244,6 +279,7 @@ function createCardPlayer(){
   span6.textContent = physical.value;
   p6.appendChild(span6);
   divInfos.appendChild(p6);
+ 
 
   // Ajouter tout à la carte
   newCard.appendChild(divContain);
