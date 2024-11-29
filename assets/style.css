@@ -150,7 +150,7 @@ section .contain-terrain .terrain {
 
 }
 
-.card-player .post{
+.card-player .name-post{
     position:absolute;
     /* background-color: black; */
      background-image: url("./images/pos_base.png");
@@ -201,8 +201,11 @@ section .contain-terrain .terrain {
 }
 
 .flags {
-    /* background-color: pink; */
+    background-color: pink;
     width: 100%;
+    /* display:flex;
+    align-items: center;
+    justify-content: center; */
 }
 
 
@@ -288,7 +291,6 @@ section .menu  {
     border-radius:6px;
     border:1px solid black;
     color:#fff;
-
 }
 
 section .menu form {
@@ -305,9 +307,7 @@ section .menu form h3{
     text-align:center;
 }
 
-section .menu form div{
-    /* background-color: red; */
-}
+
 
 section .menu form input,
 section .menu form select
@@ -352,18 +352,7 @@ section .menu form button{
 }
 
 
-/*  */
-.card-gold{
-    background-image:url("./images/badge_gold.webp");
-    background-position: center;
-    /* background-size: cover; */
-}
 
 
-/* styler la partie des caracteristique player dans la card */
-.caracteristiquePlayer{
-    width:100%;
-    height:auto;
-    display:flex;
-    background-color:red;
-}
+
+

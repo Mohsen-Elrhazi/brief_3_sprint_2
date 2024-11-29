@@ -121,7 +121,7 @@ selectFormation.addEventListener("change", function () {
 
 // Récupérer les valeurs du formulaire du joueur
 let namePlayer = document.getElementById("name");
-let position = document.getElementById("position");
+let post = document.getElementById("post");
 let nationality = document.getElementById("nationality");
 let club = document.getElementById("club");
 let rating = document.getElementById("rating");
@@ -201,6 +201,10 @@ function createCardPlayer(){
   // creer div de flags
   let divFlags=document.createElement("div")
   divFlags.classList.add("flags")
+   let imgClub=document.createElement("img")
+   imgClub.setAttribute("src","/assets/images/inter miami.webp")
+   imgClub.style.width="20px"
+   divFlags.appendChild(imgClub)
 
 
   // Ajouter tout à la carte
@@ -218,12 +222,43 @@ let btnAddPlayer = document.getElementById("add-player");
 //! Fonction pour ajouter un joueur à la carte de terrain
 btnAddPlayer.addEventListener("click", function () {
   let newCard = createCardPlayer();
-  let post = document.getElementById(position.value); 
-  if (post) {
-      position.appendChild(newCard); 
-  } else {
-      console.error("Position invalide : " + position.value);
+
+  // let positionContainer = document.getElementById(position.value); 
+  // if (positionContainer) {
+  //     positionContainer.appendChild(newCard); 
+  // } else {
+  //     console.error("Position invalide : " + position.value);
+  // }
+  //  positionContainer.innerHTML = ""
+  if(post.value==="GK"){
+    document.getElementById("GK").appendChild(newCard)
   }
-   post.innerHTML = ""
+  else if(post.value==="CB"){
+    document.getElementById("CB").appendChild(newCard)
+  }else if(post.value==="WB"){
+    document.getElementById("WB").appendChild(newCard)
+  }else if(post.value==="LB"){
+    document.getElementById("LB").appendChild(newCard)
+  }else if(post.value==="RB"){
+    document.getElementById("RB").appendChild(newCard)
+  }
+
+  else if(post.value==="CM"){
+    document.getElementById("CM").appendChild(newCard)
+  }else if(post.value==="RM"){
+    document.getElementById("RM").appendChild(newCard)
+  }else if(post.value==="LM"){
+    document.getElementById("LM").appendChild(newCard)
+  }
+
+  else if(post.value==="LW"){
+    document.getElementById("LW").appendChild(newCard)
+  }else if(post.value==="RW"){
+    document.getElementById("RW").appendChild(newCard)
+  }
+  else if(post.value==="ST"){
+    document.getElementById("ST").appendChild(newCard)
+  }
+    
 });
 

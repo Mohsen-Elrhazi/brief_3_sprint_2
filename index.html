@@ -22,25 +22,25 @@
     <section>
       <div class="contain-terrain">
         <div class="terrain">
-          <!-- Positionnement des joueurs -->
+          <!--! Positionnement des joueurs -->
           <div class="position attaquant">
-            <div class="card-player" id="LW"><div class="post">LW</div></div>
-            <div class="card-player" id="CT"><div class="post">CT</div></div>
-            <div class="card-player" id="RW"><div class="post">RW</div></div>
+            <div class="card-player" id="LW"><div class="name-post">LW</div></div>
+            <div class="card-player" id="ST"><div class="name-post">ST</div></div>
+            <div class="card-player" id="RW"><div class="name-post">RW</div></div>
           </div>
 
           <div class="position milieu">
-            <div class="card-player" id="CM-1"><div class="post">CM</div></div>
-            <div class="card-player" id="CM-2"><div class="post">CM</div></div>
-            <div class="card-player" id="CM-3"><div class="post">CM</div></div>
+            <div class="card-player" id="LM"><div class="name-post">LM</div></div>
+            <div class="card-player" id="CM"><div class="name-post">CM</div></div>
+            <div class="card-player" id="RM"><div class="name-post">RM</div></div>
           </div>
 
           <div class="position defenseur">
-            <div class="card-player" id="LB-1"><div class="post">LB</div></div>
-            <div class="card-player" id="CB-2"><div class="post">CB</div></div>
-            <div class="card-player" id="GK"><div class="post">GK</div></div>
-            <div class="card-player" id="CB-3"><div class="post">CB</div></div>
-            <div class="card-player" id="DF-4"><div class="post">RB</div></div>
+            <div class="card-player" id="LB"><div class="name-post">LB</div></div>
+            <div class="card-player" id="CB"><div class="name-post">CB</div></div>
+            <div class="card-player" id="GK"><div class="name-post">GK</div></div>
+            <div class="card-player" id="WB"><div class="name-post">WB</div></div>
+            <div class="card-player" id="RB"><div class="name-post">RB</div></div>
           </div>
 
         </div>
@@ -65,8 +65,8 @@
             </div>
 
             <div>
-              <label for="position"> Position</label>
-              <select id="position">
+              <label for="post">Position</label>
+              <select id="post">
                 <optgroup label="Goalkeeper">
                   <option value="GK">Goalkeeper (GK)</option>
                 </optgroup>
@@ -77,9 +77,9 @@
                   <option value="WB">Wing Back (WB)</option>
                 </optgroup>
                 <optgroup label="Midfielder">
-                  <option value="DM">Defensive Midfield (DM)</option>
+                  <option value="RM">Right Midfield (RM)</option>
                   <option value="CM">Central Midfield (CM)</option>
-                  <option value="AM">Attacking Midfield (AM)</option>
+                  <option value="LM">Left Midfield (LM)</option>
                 </optgroup>
                 <optgroup label="Forward">
                   <option value="ST">Striker (ST)</option>
@@ -91,8 +91,8 @@
             </div>
                  
               <!-- <div>
-               <select>
-                <option value=""></option>
+               <select id="flag-club">
+                <option value="https://cdn.sofifa.net/meta/team/239235/120.png">Inter Miami</option>
                 <option value=""></option>
                 <option value=""></option>
                 <option value=""></option>
