@@ -333,32 +333,36 @@ function createCardPlayer() {
   // });
 
   iconDelete.addEventListener("click", function (event) {
-    event.stopPropagation(); // Empêche la propagation de l'événement
+    event.stopPropagation(); 
 
     const parentCard = this.closest(".new-card-player, .cardPlayerReserv");
     if (parentCard) {
         const cardType = parentCard.getAttribute("data-type");
 
-        // Gestion des actions selon la valeur de data-type
         switch (cardType) {
             case "terrain":
                 console.log("Suppression d'une carte du terrain");
-                if (confirm("Êtes-vous sûr de vouloir supprimer cette carte du terrain ?")) {
+                if (confirm("Etes-vous sûr de vouloir supprimer cette carte du terrain ?")) {
                     parentCard.remove();
-                    GKAdded = 0; // Réinitialiser si nécessaire
+                    GKAdded = 0; 
+                    CBAdded = 0;
+                    WBAdded = 0;
+                    LBAdded = 0;
+                    RBAdded = 0;
+                    CMAdded = 0;
+                    LMAdded = 0;
+                    RMAdded = 0;
+                    STAdded = 0;
+                    LWAdded = 0;
+                    RWAdded = 0;
                 }
                 break;
-
             case "reservation":
-                console.log("Suppression d'une carte de réservation");
-                if (confirm("Êtes-vous sûr de vouloir supprimer cette carte de la réservation ?")) {
+                console.log("Suppression d'une carte de reservation");
+                if (confirm("Etes-vous sûr de vouloir supprimer cette carte de la réservation ?")) {
                     parentCard.remove();
-                    cardReserv().remove();
                 }
                 break;
-
-            default:
-                console.warn("Type de carte inconnu : aucune action effectuée.");
         }
     }
 });
@@ -413,8 +417,8 @@ btnAddPlayer.addEventListener("click", function () {
     switch (post.value) {
       case "GK":
         if (GKAdded === 0) {
-          document.getElementById("GK").appendChild(newCard);
           newCard.setAttribute("data-type","terrain")
+          document.getElementById("GK").appendChild(newCard);
           GKAdded = 1;
         } else {
           newCard.setAttribute("data-type","reservation")
@@ -423,102 +427,102 @@ btnAddPlayer.addEventListener("click", function () {
         break;
       case "CB":
         if (CBAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("CB").appendChild(newCard);
           CBAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "WB":
         if (WBAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("WB").appendChild(newCard);
           WBAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "LB":
         if (LBAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("LB").appendChild(newCard);
           LBAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "RB":
         if (RBAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("RB").appendChild(newCard);
           RBAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "CM":
         if (CMAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("CM").appendChild(newCard);
           CMAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "LM":
         if (LMAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("LM").appendChild(newCard);
           LMAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "RM":
         if (RMAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("RM").appendChild(newCard);
           RMAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "ST":
         if (STAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("ST").appendChild(newCard);
           STAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "RW":
         if (RWAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("RW").appendChild(newCard);
           RWAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "LW":
         if (LWAdded === 0) {
+          newCard.setAttribute("data-type","terrain")
           document.getElementById("LW").appendChild(newCard);
           LWAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
-          newCardReserv.appendChild(newCard);
+          newCard.setAttribute("data-type","reservation")
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
     }
