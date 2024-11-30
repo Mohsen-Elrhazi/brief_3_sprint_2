@@ -172,7 +172,7 @@ section .contain-terrain .terrain {
 .divContain{
     width:100%;
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 24% 76%;
     padding:4px
 
     /* justify-content: space-evenly; */
@@ -198,11 +198,17 @@ section .contain-terrain .terrain {
     align-items:center;
     justify-content: center;
     gap:2px;
-    font-size:12px;
+    font-size:11px;
+    font-weight:bold;
+    padding:6px;
+}
+
+.image-name p{
+    text-align: center;
 }
 
 .info {
-    background-color: rgba(245, 245, 245, 0.392);
+    background-color: rgba(245, 245, 245, 0.24);
     width: 90%;
     height:100%;
     margin:0 auto;
@@ -221,7 +227,12 @@ section .contain-terrain .terrain {
     display:flex;
     flex-direction: column;
     align-items: center;
-    font-size:8px;
+    font-size:7px;
+}
+
+.info p span{
+    font-weight: bold;
+    font-size: 10px;
 }
 
 
@@ -373,16 +384,29 @@ section .menu form button{
 /* todo reservation */
 
 #reservation{
-    width:90%;
+    width:91.5%;
     height:auto;
-    background-color: #0000003e;
-    margin:0 auto;
+    /* background-color: #00000013; */
+    box-shadow: 0 0 2px 2px rgb(218, 213, 213);
+    margin:0 auto 10px;
     display:flex;
     flex-wrap:wrap;
-    gap:4px;
+    gap:26px;
     padding:6px;
 }
 
+/* todo cars reserv */
 
+.cardPlayerReserv{
+    width: 130px;
+    height: 176px;
+    cursor:pointer;
+    transition: all 0.7s ease;
+}
+
+.cardPlayerReserv:hover{
+    filter:drop-shadow(0px  6px 10px #e6c72c);
+    transform:scale(1.03)
+}
 
 
