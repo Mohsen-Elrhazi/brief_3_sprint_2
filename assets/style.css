@@ -159,15 +159,14 @@ section .contain-terrain .terrain {
 
 .new-card-player{
     position:relative;
-    width:100%;
+    width: 130px;
+    height: 176px;
     display:grid;
-    height:100%;
     /* grid-template-rows:50% 30% 12%;  */
     grid-template-rows:63% 25% ; 
     row-gap:5px;
     color:#000;
-    /* padding:6px 2px 2px; */
-    /* background-color: rgb(139, 150, 13); */
+    transition: all 0.7s ease;
 }
 
 .divContain{
@@ -236,12 +235,6 @@ section .contain-terrain .terrain {
     font-size: 10px;
 }
 
-
-
-/* .card-player:hover ,.divIcons:not:hover{
-    filter:drop-shadow(0px  6px 10px var(--colorMain));
-    transform:scale(1.03)
-} */
 
 .card-player:hover:not(:has(.divIcons:hover)) {
     filter: drop-shadow(0px 6px 10px var(--colorMain));
@@ -390,30 +383,35 @@ section .menu form button{
 /* todo reservation */
 
 #reservation{
-    width:91.5%;
+    width:96%;
     height:auto;
     /* background-color: #00000013; */
     box-shadow: 0 0 2px 2px rgb(218, 213, 213);
     margin:0 auto 10px;
     display:flex;
     flex-wrap:wrap;
-    gap:26px;
-    padding:6px;
+    gap:50px;
+    padding:10px 6px 20px 25px;
 }
 
+#reservation .new-card-player:hover:not(:has(.divIcons:hover)) {
+    filter: drop-shadow(0px 6px 10px var(--colorMain));
+    cursor:pointer;
+    /* transform: scale(1.03); */
+}
 /* todo cars reserv */
 
-.cardPlayerReserv{
+/* .cardPlayerReserv{
     width: 130px;
     height: 176px;
     cursor:pointer;
     transition: all 0.7s ease;
 }
 
-.cardPlayerReserv:hover{
+.cardPlayerReserv:hover:not(:has(.divIcons:hover)) {
     filter:drop-shadow(0px  6px 10px #e6c72c);
     transform:scale(1.03)
-}
+} */
 
 /* todo style de icon update */
 .fa-pen-to-square,.fa-trash {

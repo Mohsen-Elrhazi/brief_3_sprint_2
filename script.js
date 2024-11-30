@@ -322,39 +322,60 @@ function createCardPlayer() {
     }
   });
 
-  iconDelete.addEventListener("click", function () {
-    if(confirm("Avez-vous sure de supprimer cet player ?")){
-      newCard.remove();
-      GKAdded = 0;
-      CBAdded = 0;
-      WBAdded = 0;
-      LBAdded = 0;
-      RBAdded = 0;
-      CMAdded = 0;
-      LMAdded = 0;                                                        
-      RMAdded = 0;
-      STAdded = 0;
-      LWAdded = 0;
-      RWAdded = 0;
-    }
-   
-  });
-   if (confirm("Êtes-vous sûr de vouloir supprimer cette carte ?")) {
-        parentCard.remove();
-      }
-  
+  // iconDelete.addEventListener("click", function () {
+  //   if(confirm("Avez-vous sure de supprimer cet player ?")){
+  //     if( GKAdded = 1){
+  //       newCard.remove();
+  //       GKAdded=0
+  //     }
+  //   }
 
+  // });
+
+  iconDelete.addEventListener("click", function (event) {
+    event.stopPropagation(); // Empêche la propagation de l'événement
+
+    const parentCard = this.closest(".new-card-player, .cardPlayerReserv");
+    if (parentCard) {
+        const cardType = parentCard.getAttribute("data-type");
+
+        // Gestion des actions selon la valeur de data-type
+        switch (cardType) {
+            case "terrain":
+                console.log("Suppression d'une carte du terrain");
+                if (confirm("Êtes-vous sûr de vouloir supprimer cette carte du terrain ?")) {
+                    parentCard.remove();
+                    GKAdded = 0; // Réinitialiser si nécessaire
+                }
+                break;
+
+            case "reservation":
+                console.log("Suppression d'une carte de réservation");
+                if (confirm("Êtes-vous sûr de vouloir supprimer cette carte de la réservation ?")) {
+                    parentCard.remove();
+                    cardReserv().remove();
+                }
+                break;
+
+            default:
+                console.warn("Type de carte inconnu : aucune action effectuée.");
+        }
+    }
+});
+
+ 
 
   return newCard;
 }
 
 // ! creer fonction reservation pour placer un card de reservation vers celle
-function cardReserv() {
-  let divCardReserv = document.createElement("div");
-  divCardReserv.classList.add("cardPlayerReserv");
+// function cardReserv() {
+//   let divCardReserv = document.createElement("div");
+//   divCardReserv.classList.add("cardPlayerReserv");
 
-  return divCardReserv;
-}
+
+//   return divCardReserv;
+// }
 // Bouton pour ajouter un joueur
 let btnAddPlayer = document.getElementById("add-player");
 
@@ -396,10 +417,8 @@ btnAddPlayer.addEventListener("click", function () {
           newCard.setAttribute("data-type","terrain")
           GKAdded = 1;
         } else {
-          let newCardReserv = cardReserv();
-          document.getElementById("reservation").appendChild(newCardReserv);
           newCard.setAttribute("data-type","reservation")
-          newCardReserv.appendChild(newCard);
+          document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "CB":
