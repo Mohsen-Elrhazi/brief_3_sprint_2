@@ -297,30 +297,80 @@ function createCardPlayer() {
   newCard.style.backgroundSize = "contain";
   newCard.style.backgroundRepeat = "no-repeat";
 
+  // todo ajouter un icon de update et delete a la carte
+  let divIcons = document.createElement("div");
+  divIcons.classList.add("divIcons");
+  // icon de update
+  let iconUpdate = document.createElement("i");
+  iconUpdate.classList.add("fa-regular", "fa-pen-to-square");
+
+  // icon de delete
+  let iconDelete = document.createElement("i");
+  iconDelete.classList.add("fa-solid", "fa-trash");
+
+  divIcons.appendChild(iconUpdate);
+  divIcons.appendChild(iconDelete);
+  newCard.appendChild(divIcons);
+
+  divIcons.style.display = "none";
+
+  newCard.addEventListener("click", function () {
+    if (divIcons.style.display === "none") {
+      divIcons.style.display = "flex";
+    } else {
+      divIcons.style.display = "none";
+    }
+  });
+
+  iconDelete.addEventListener("click", function () {
+    if(confirm("Avez-vous sure de supprimer cet player ?")){
+      newCard.remove();
+      GKAdded = 0;
+      CBAdded = 0;
+      WBAdded = 0;
+      LBAdded = 0;
+      RBAdded = 0;
+      CMAdded = 0;
+      LMAdded = 0;                                                        
+      RMAdded = 0;
+      STAdded = 0;
+      LWAdded = 0;
+      RWAdded = 0;
+    }
+   
+  });
+   if (confirm("Êtes-vous sûr de vouloir supprimer cette carte ?")) {
+        parentCard.remove();
+      }
+  
+
+
   return newCard;
 }
 
 // ! creer fonction reservation pour placer un card de reservation vers celle
-function cardReserv(){
-  let divCardReserv=document.createElement("div")
-  divCardReserv.classList.add("cardPlayerReserv")
-  return divCardReserv
+function cardReserv() {
+  let divCardReserv = document.createElement("div");
+  divCardReserv.classList.add("cardPlayerReserv");
+
+  return divCardReserv;
 }
 // Bouton pour ajouter un joueur
 let btnAddPlayer = document.getElementById("add-player");
 
-// todo les variable pour tester si leplayer a ete ajouter ...
-let GKAdded=0
-let CBAdded=0
-let WBAdded=0
-let LBAdded=0
-let RBAdded=0
-let CMAdded=0
-let LMAdded=0
-let RMAdded=0
-let STAdded=0
-let LWAdded=0
-let RWAdded=0
+// todo les variable pour tester si le player si il a ete ajouter ...
+let GKAdded = 0;
+let CBAdded = 0;
+let WBAdded = 0;
+let LBAdded = 0;
+let RBAdded = 0;
+let CMAdded = 0;
+let LMAdded = 0;
+let RMAdded = 0;
+let STAdded = 0;
+let LWAdded = 0;
+let RWAdded = 0;
+
 //! Fonction pour ajouter un joueur à la carte de terrain
 btnAddPlayer.addEventListener("click", function () {
   let newCard = createCardPlayer();
@@ -340,106 +390,119 @@ btnAddPlayer.addEventListener("click", function () {
     alert("Veuillez remplir tous les champs ");
   } else {
     switch (post.value) {
-      case "GK":if(GKAdded===0){
-        document.getElementById("GK").appendChild(newCard);
-        GKAdded=1
-      }else {
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }    
+      case "GK":
+        if (GKAdded === 0) {
+          document.getElementById("GK").appendChild(newCard);
+          newCard.setAttribute("data-type","terrain")
+          GKAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCard.setAttribute("data-type","reservation")
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "CB":if(CBAdded===0){
-        document.getElementById("CB").appendChild(newCard);
-        CBAdded=1
-      }else {
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "CB":
+        if (CBAdded === 0) {
+          document.getElementById("CB").appendChild(newCard);
+          CBAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "WB":if(WBAdded===0){
-        document.getElementById("WB").appendChild(newCard);
-        WBAdded=1
-      } else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "WB":
+        if (WBAdded === 0) {
+          document.getElementById("WB").appendChild(newCard);
+          WBAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "LB":if(LBAdded===0){
-        document.getElementById("LB").appendChild(newCard);
-        LBAdded=1;
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "LB":
+        if (LBAdded === 0) {
+          document.getElementById("LB").appendChild(newCard);
+          LBAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "RB":if(RBAdded===0){
-        document.getElementById("RB").appendChild(newCard);
-        RBAdded=1
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "RB":
+        if (RBAdded === 0) {
+          document.getElementById("RB").appendChild(newCard);
+          RBAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "CM":if(CMAdded===0){
-        document.getElementById("CM").appendChild(newCard);
-        CMAdded=1
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "CM":
+        if (CMAdded === 0) {
+          document.getElementById("CM").appendChild(newCard);
+          CMAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "LM":if(LMAdded===0){
-        document.getElementById("LM").appendChild(newCard);
-        LMAdded=1
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "LM":
+        if (LMAdded === 0) {
+          document.getElementById("LM").appendChild(newCard);
+          LMAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "RM":if(RMAdded===0){
-        document.getElementById("RM").appendChild(newCard);
-        RMAdded=1
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "RM":
+        if (RMAdded === 0) {
+          document.getElementById("RM").appendChild(newCard);
+          RMAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "ST":if(STAdded===0){
-        document.getElementById("ST").appendChild(newCard);
-        STAdded=1
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "ST":
+        if (STAdded === 0) {
+          document.getElementById("ST").appendChild(newCard);
+          STAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "RW":if(RWAdded===0){
-        document.getElementById("RW").appendChild(newCard);
-        RWAdded=1
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "RW":
+        if (RWAdded === 0) {
+          document.getElementById("RW").appendChild(newCard);
+          RWAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
-      case "LW":if(LWAdded===0){
-        document.getElementById("LW").appendChild(newCard);
-        LWAdded=1
-      }else{
-        let newCardReserv=cardReserv()
-        document.getElementById("reservation").appendChild(newCardReserv);
-        newCardReserv.appendChild(newCard);
-      }
+      case "LW":
+        if (LWAdded === 0) {
+          document.getElementById("LW").appendChild(newCard);
+          LWAdded = 1;
+        } else {
+          let newCardReserv = cardReserv();
+          document.getElementById("reservation").appendChild(newCardReserv);
+          newCardReserv.appendChild(newCard);
+        }
         break;
     }
   }
- 
+  document.getElementById("form-infos").reset();
 });
