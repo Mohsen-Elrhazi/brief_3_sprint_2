@@ -10,7 +10,7 @@ btnAddPlayers.addEventListener("click", function () {
   formation.style.display = "none";
 });
 
-// button changer formation dans la form pour retour a la partie de formation
+//! button changer formation dans la form pour retour a la partie de formation
 let btnChangeFormation = document.getElementById("change-formation");
 
 btnChangeFormation.addEventListener("click", function () {
@@ -95,47 +95,56 @@ selectFormation.addEventListener("change", function () {
   if (selectFormation.value === "4-4-2") {
     // Déplacer l'attaquant 1 vers les milieux
     positionMilieu.appendChild(attaquant3);
+    document.querySelector(".attaquant").style.justifyContent="space-evenly"
+    document.getElementById("RM").style.marginTop="14px"
+    document.getElementById("CM").style.marginTop="14px"
 
     // Ajuster les styles
-    positionAttaquant.style.width = "40%";
-    positionMilieu.style.width = "85%";
+    // positionAttaquant.style.width = "440px";
+    // positionMilieu.style.width = "710px";
 
-    milieu1.style.marginBottom = "5rem";
-    attaquant3.style.marginBottom = "5rem";
+  //   milieu1.style.marginBottom = "5rem";
+  //   attaquant3.style.marginBottom = "5rem";
 
-    milieu2.style.marginRight = "8.1rem";
-    milieu2.style.marginLeft = "0.1rem";
+  //   milieu2.style.marginRight = "8.1rem";
+  //   milieu2.style.marginLeft = "0.1rem";
 
-    milieu2.style.marginBottom = "1.2rem";
-    milieu3.style.marginTop = "1.1rem";
+  //   milieu2.style.marginBottom = "1.2rem";
+  //   milieu3.style.marginTop = "1.1rem";
 
-    gardient.style.marginTop = "6.4rem";
-    defenseur2.style.marginLeft = "1.8rem";
+  //   gardient.style.marginTop = "6.4rem";
+  //   defenseur2.style.marginLeft = "1.8rem";
 
-    defenseur3.style.marginRight = "1.4rem";
+  //   defenseur3.style.marginRight = "1.4rem";
   }
   // Formation 4-4-2
   else if (selectFormation.value === "4-3-3") {
     // Formation 4-3-3 : ramener l'attaquant 3 a sa position originale
     positionAttaquant.appendChild(attaquant3);
 
+    document.querySelector(".milieu").style.justifyContent="space-around"
+    document.getElementById("RM").style.marginTop="0"
+
+
+
+
     // Réinitialiser les styles
-    positionAttaquant.style.width = "68%";
-    positionMilieu.style.width = "60%";
+    // positionAttaquant.style.width = "660px";
+    // positionMilieu.style.width = "600px";
 
-    milieu1.style.marginBottom = "0";
-    attaquant3.style.marginBottom = "0";
+    // milieu1.style.marginBottom = "0";
+    // attaquant3.style.marginBottom = "0";
 
-    milieu2.style.marginRight = "0";
-    milieu2.style.marginLeft = "0";
+    // milieu2.style.marginRight = "0";
+    // milieu2.style.marginLeft = "0";
 
-    milieu2.style.marginBottom = "0";
-    milieu3.style.marginTop = "0";
+    // milieu2.style.marginBottom = "0";
+    // milieu3.style.marginTop = "0";
 
-    gardient.style.marginTop = "8.8rem";
-    defenseur2.style.marginLeft = "0";
+    // gardient.style.marginTop = "8.8rem";
+    // defenseur2.style.marginLeft = "0";
 
-    defenseur3.style.marginRight = "0";
+    // defenseur3.style.marginRight = "0";
   }
 });
 
@@ -158,7 +167,9 @@ let imagePlayer = document.getElementById("image-player");
 // recuperer id reservation
 let reservation = document.getElementById("reservation");
 
-var GK = 0;
+//! button add et edit
+document.getElementById("add-player").style.display = "block";
+document.getElementById("edit-player").style.display = "none";
 
 //! fonction pour creer new card player
 
@@ -166,6 +177,39 @@ function createCardPlayer() {
   // Creer une nouvelle carte pour le joueur
   let newCard = document.createElement("div");
   newCard.classList.add("new-card-player");
+
+  // todo
+  //   newCard.addEventListener("click", function (event) {
+  //     const parentPost = this.closest(".card-player");
+
+  //     if (parentPost) {
+  //         alert("ID du poste : " + parentPost.id);
+  //     }
+  // });
+  // todo ajouter attribut data-post pour stocker id de post
+  newCard.setAttribute("data-post", post.value);
+  newCard.addEventListener("click", function (event) {
+    let nomPost = this.getAttribute("data-post");
+    //  alert("Post: "+nomPost)
+    if (nomPost === "GK") {
+      // alert("Post: GK ");
+      document.querySelectorAll("#normal-player").forEach((element) => {
+        element.style.display = "none";
+      });
+
+      document.querySelectorAll("#propriete-GK").forEach((element) => {
+        element.style.display = "block";
+      });
+    } else {
+      document.querySelectorAll("#normal-player").forEach((element) => {
+        element.style.display = "block";
+      });
+
+      document.querySelectorAll("#propriete-GK").forEach((element) => {
+        element.style.display = "none";
+      });
+    }
+  });
 
   //! div contain
   let divContain = document.createElement("div");
@@ -183,13 +227,14 @@ function createCardPlayer() {
   let flagImageUrl = nationality.value;
   let imgCountry = document.createElement("img");
   imgCountry.src = flagImageUrl;
-  imgCountry.style.width = "20px";
+  imgCountry.classList.add("img-country")
 
   //image club
   let clubImageUrl = club.value;
   let imgClub = document.createElement("img");
   imgClub.src = clubImageUrl;
-  imgClub.style.width = "20px";
+  imgClub.classList.add("img-club")
+
 
   divRatingClubCountry.appendChild(spanRating);
   divRatingClubCountry.appendChild(imgCountry);
@@ -207,7 +252,7 @@ function createCardPlayer() {
   let imagePlayerUrl = imagePlayer.value;
   let imgPlayer = document.createElement("img");
   imgPlayer.src = imagePlayerUrl;
-  imgPlayer.style.width = "70px";
+  imgPlayer.classList.add("img-player")
   divImgName.appendChild(imgPlayer);
 
   divContain.appendChild(divRatingClubCountry);
@@ -322,64 +367,151 @@ function createCardPlayer() {
     }
   });
 
-  // iconDelete.addEventListener("click", function () {
-  //   if(confirm("Avez-vous sure de supprimer cet player ?")){
-  //     if( GKAdded = 1){
-  //       newCard.remove();
-  //       GKAdded=0
-  //     }
-  //   }
-
-  // });
-
+  //! fonction Delete player
   iconDelete.addEventListener("click", function (event) {
-    event.stopPropagation(); 
+    event.stopPropagation();
 
     const parentCard = this.closest(".new-card-player, .cardPlayerReserv");
     if (parentCard) {
-        const cardType = parentCard.getAttribute("data-type");
+      const cardType = parentCard.getAttribute("data-type");
 
-        switch (cardType) {
-            case "terrain":
-                console.log("Suppression d'une carte du terrain");
-                if (confirm("Etes-vous sûr de vouloir supprimer cette carte du terrain ?")) {
-                    parentCard.remove();
-                    GKAdded = 0; 
-                    CBAdded = 0;
-                    WBAdded = 0;
-                    LBAdded = 0;
-                    RBAdded = 0;
-                    CMAdded = 0;
-                    LMAdded = 0;
-                    RMAdded = 0;
-                    STAdded = 0;
-                    LWAdded = 0;
-                    RWAdded = 0;
-                }
-                break;
-            case "reservation":
-                console.log("Suppression d'une carte de reservation");
-                if (confirm("Etes-vous sûr de vouloir supprimer cette carte de la réservation ?")) {
-                    parentCard.remove();
-                }
-                break;
-        }
+      switch (cardType) {
+        case "terrain":
+          console.log("Suppression d'une carte du terrain");
+          if (
+            confirm(
+              "Etes-vous sûr de vouloir supprimer cette carte du terrain ?"
+            )
+          ) {
+            parentCard.remove();
+            GKAdded = 0;
+            CBAdded = 0;
+            WBAdded = 0;
+            LBAdded = 0;
+            RBAdded = 0;
+            CMAdded = 0;
+            LMAdded = 0;
+            RMAdded = 0;
+            STAdded = 0;
+            LWAdded = 0;
+            RWAdded = 0;
+          }
+          break;
+        case "reservation":
+          console.log("Suppression d'une carte de reservation");
+          if (
+            confirm(
+              "Etes-vous sûr de vouloir supprimer cette carte de la réservation ?"
+            )
+          ) {
+            parentCard.remove();
+          }
+          break;
+      }
     }
-});
+  });
 
- 
+  //! fonction Update player
+  iconUpdate.addEventListener("click", function (event) {
+    let playerCard = event.target.closest(".new-card-player");
+
+    btnAddPlayer.style.display = "none";
+    document.getElementById("edit-player").style.display = "block";
+    btnChangeFormation.style.display = "none";
+    document.getElementById("annuler").style.display = "block";
+
+    imagePlayer.value = imagePlayerUrl;
+    nationality.value = flagImageUrl;
+    club.value = clubImageUrl;
+    namePlayer.value = namePl.textContent;
+    rating.value = spanRating.textContent;
+    post.value = newCard.getAttribute("data-post");
+
+    if (newCard.getAttribute("data-post") === "GK") {
+      document.getElementById("diving").value = span1.textContent;
+
+      document.getElementById("handling").value = span2.textContent;
+
+      document.getElementById("kicking").value = span3.textContent;
+
+      document.getElementById("reflexes").value = span4.textContent;
+
+      document.getElementById("speed").value = span5.textContent;
+
+      document.getElementById("positioning").value = span6.textContent;
+    } else {
+      pace.value = span1.textContent;
+
+      shooting.value = span2.textContent;
+
+      passing.value = span3.textContent;
+
+      dribbling.value = span4.textContent;
+
+      deffensing.value = span5.textContent;
+
+      physical.value = span6.textContent;
+    }
+      
+  });
+  
+  // document.getElementById("edit-player").addEventListener("click", function (event) {
+  //   // let playerCard = event.target.closest(".new-card-player");
+          
+  //         // post.value = newCard.getAttribute("data-post");   
+
+  //   if (newCard.getAttribute("data-post") === "GK") {
+  //     imagePlayerUrl=imagePlayer.value;
+  //     flagImageUrl=nationality.value;
+  //     clubImageUrl=club.value;
+  //     namePl.textContent=namePlayer.value;
+  //     spanRating.textContent=rating.value;
+  //     span1.textContent= document.getElementById("diving").value ;
+
+  //       span2.textContent=document.getElementById("handling").value;
+
+  //       span3.textContent=document.getElementById("kicking").value;
+
+  //       span4.textContent=document.getElementById("reflexes").value;
+
+  //       span5.textContent=document.getElementById("speed").value;
+
+  //      span6.textContent= document.getElementById("positioning").value;
+  //   } else {
+  //     imagePlayerUrl=imagePlayer.value;
+  //     flagImageUrl=nationality.value;
+  //     clubImageUrl=club.value;
+  //     namePl.textContent=namePlayer.value;
+  //     spanRating.textContent=rating.value;
+  //      span1.textContent=pace.value ;
+
+  //       span2.textContent=shooting.value;
+
+  //      span3.textContent=passing.value ;
+
+  //      span4.textContent=dribbling.value;
+
+  //       span5.textContent=deffensing.value;
+
+  //     span6.textContent=physical.value;
+  //   }   
+  //   alert("Player a ete modifier")
+  //     });
 
   return newCard;
 }
 
-// ! creer fonction reservation pour placer un card de reservation vers celle
-// function cardReserv() {
-//   let divCardReserv = document.createElement("div");
-//   divCardReserv.classList.add("cardPlayerReserv");
+// todo btn annuler adit
+document.getElementById("annuler").style.display = "none";
 
+document.getElementById("annuler").addEventListener("click", function () {
+  btnChangeFormation.style.display = "block";
+  document.getElementById("edit-player").style.display = "none";
+  document.getElementById("annuler").style.display = "none";
+  btnAddPlayer.style.display = "block";
+  document.getElementById("form-infos").reset();
+});
 
-//   return divCardReserv;
-// }
 // Bouton pour ajouter un joueur
 let btnAddPlayer = document.getElementById("add-player");
 
@@ -417,111 +549,111 @@ btnAddPlayer.addEventListener("click", function () {
     switch (post.value) {
       case "GK":
         if (GKAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("GK").appendChild(newCard);
           GKAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "CB":
         if (CBAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("CB").appendChild(newCard);
           CBAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "WB":
         if (WBAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("WB").appendChild(newCard);
           WBAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "LB":
         if (LBAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("LB").appendChild(newCard);
           LBAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "RB":
         if (RBAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("RB").appendChild(newCard);
           RBAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "CM":
         if (CMAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("CM").appendChild(newCard);
           CMAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "LM":
         if (LMAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("LM").appendChild(newCard);
           LMAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "RM":
         if (RMAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("RM").appendChild(newCard);
           RMAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "ST":
         if (STAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("ST").appendChild(newCard);
           STAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "RW":
         if (RWAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("RW").appendChild(newCard);
           RWAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
       case "LW":
         if (LWAdded === 0) {
-          newCard.setAttribute("data-type","terrain")
+          newCard.setAttribute("data-type", "terrain");
           document.getElementById("LW").appendChild(newCard);
           LWAdded = 1;
         } else {
-          newCard.setAttribute("data-type","reservation")
+          newCard.setAttribute("data-type", "reservation");
           document.getElementById("reservation").appendChild(newCard);
         }
         break;
@@ -529,3 +661,11 @@ btnAddPlayer.addEventListener("click", function () {
   }
   document.getElementById("form-infos").reset();
 });
+
+// !document.getElementById("diving").value ||
+//     !document.getElementById("handling").value ||
+//     !document.getElementById("kicking").value ||
+//     !document.getElementById("reflexes").value ||
+//     !document.getElementById("speed").value ||
+//     !document.getElementById("positioning").value
+

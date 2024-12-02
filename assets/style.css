@@ -11,6 +11,7 @@ body{
     background-size: contain;
   /*   position:relative;
     top:px; */
+    width:100%;
 }
 
 :root{
@@ -23,14 +24,12 @@ nav{
     background-color:#3d3b3b;
     top:0;
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items: center;
-    padding:10px 160px;
+    padding:10px 10px;
     margin-bottom: 60px;
-
+    width:100%;
 }
-
-
 
 nav ul{
     list-style:none;
@@ -74,11 +73,12 @@ nav button {
   display:grid;
   grid-template-columns:2fr 1fr;
   gap:10px;
-  margin:140px 8px;
+  margin:140px auto;
   border:1px solid black;
-  padding:12px 18px;
-  width:auto;
-  height:auto;
+  padding:12px;
+  background-color: red;
+  width:86rem;
+  height:46rem;
 }
 
 section .contain-terrain .terrain {
@@ -88,12 +88,11 @@ section .contain-terrain .terrain {
     background-position: center;
     width:100%;
     height:100%;
-    margin-top:20px;
+    /* margin-top:20px; */
     display:grid;
     grid-template-rows:repeat(3,1fr);
     row-gap:0.8rem;
-    /* background-color: aqua; */
-
+    background-color: rgb(10, 170, 173);
 }
 
 .terrain .position  {
@@ -107,21 +106,28 @@ section .contain-terrain .terrain {
     align-items:center;
 }
 
-.terrain .position:nth-of-type(1) {
-    width: 69%;
+/* .terrain .position:nth-of-type(1) {
+     width: 650rem; 
 }
 
 .terrain .position:nth-of-type(2) {
-    width: 60%;
+     width: 80%; 
 }
 
 .terrain .position:nth-of-type(3) {
-    width: 85%;
+    width: 90%;
+} */
+
+.attaquant{
+    width: 660px; 
 }
 
-.terrain .position:nth-of-type(4) {
-    width: 94%;
-    justify-content:center;
+ .milieu{
+    width: 720px; 
+}
+
+.defenseur{
+    width: 820px; 
 }
 
 .card-player{
@@ -173,10 +179,9 @@ section .contain-terrain .terrain {
     width:100%;
     display: grid;
     grid-template-columns: 24% 76%;
-    padding:4px
+    padding:15px 4px 4px 4px;
+    
 
-    /* justify-content: space-evenly; */
-    /* background-color: rgb(126, 154, 33); */
 }
 
 .ratingCountryClub {
@@ -241,29 +246,35 @@ section .contain-terrain .terrain {
     /* transform: scale(1.03); */
 }
 
-
-.defenseur #GK{
-    margin-top:8.8rem;
+/* ! */
+ .defenseur #GK{
+    margin-top:6rem;
 }
 
-.defenseur #DF-1,#DF-4{
+.defenseur #LB,#RB{
     margin-bottom:3rem;
 }
 
-.milieu #ML-2{
+/* .milieu #CM{
     margin-top:2.4rem;
-}
+} */
 
 
 /* Formation */
 section .menu #formation{
-    width:100%;
-    height:100%;
+    position:absolute;
+    width:20rem;
+    height:20rem;
     display:flex;
     flex-direction:column;
     gap:22px;
     justify-content:center;
     align-items:center;
+    background-color: green;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    /* margin:auto auto; */
 } 
 
 /* style de h2 de formation */
@@ -311,22 +322,23 @@ section .menu #select-formation:focus{
 
 
 section .menu  {
-    width:100%;
-    min-height:88vh;
-    margin-top:43px;
+    position:relative;
+    width:27rem;
+    height:36rem;
+    /* margin-top:43px; */
+    margin:auto;
     padding:14px;
     background-color:#1E1E1E;
     border-radius:6px;
-    border:1px solid black;
     color:#fff;
 }
 
 section .menu form {
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    gap:12px;
     align-items:center ;
-    justify-content: stretch;
+    /* justify-content: stretch; */
     /* color:#fff; */
 } 
 
@@ -365,8 +377,6 @@ section .menu form input:focus{
 
 
 section .menu form button{
-    /* grid-column:span 2; */
-    /* justify-self:center; */
     padding:14px;
     border:none;
     border-radius:4px;
@@ -393,7 +403,6 @@ section .menu form button{
     gap:50px;
     padding:10px 6px 20px 25px;
     transition: all 0.7s ease;
-
 }
 
 #reservation .new-card-player:hover:not(:has(.divIcons:hover)) {
@@ -422,6 +431,7 @@ section .menu form button{
     right:-26px;
     font-size:19px;
     color:#fff;
+    cursor:pointer;
 }
 
 .fa-pen-to-square:hover{
@@ -444,4 +454,321 @@ section .menu form button{
     background-color: rgba(199, 193, 193, 0.381);
     width:40px;
     height:88px;
+}
+
+.img-country,.img-club{
+   width:24px;
+}
+
+.img-player{
+    width:70px;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    body {
+        font-size:.8rem; 
+        background-image:url("");
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom:0;
+    }
+
+     .contain-terrain{
+        margin-top:1rem;
+        margin-bottom: 0;
+        width:98%;
+        /* min-height:3rem; */
+        height:auto;
+       /* max-height: auto; */
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section .contain-terrain .terrain {
+        width: 100%;
+        height: 14rem;
+      background-size: contain;
+      }
+
+      section .menu  {
+        width:100%;
+        min-height:15rem;
+        height:auto;
+        padding:14px;
+        margin-top:0;
+    }
+
+    section .menu #formation {
+        width: 14rem;
+        height: 12rem;
+    }
+
+    section .menu #formation select {
+         font-size:0.7rem;
+    }
+
+    section .menu form button{
+        /* font-size:13px; */
+        padding-left:0;
+        padding-right:0;
+    }
+
+    section .menu form input,
+    section .menu form select{
+    padding:10px;
+    font-size:12px
+      }
+
+      .terrain .position  {
+        height: 1.6rem;
+        margin:-1px auto;
+        gap:8px;
+    }
+
+     .attaquant{
+        width: 202px; 
+    }
+    
+    .milieu{
+        width: 220px; 
+    }
+    
+    .defenseur{
+        width: 250px; 
+    }
+
+    .defenseur #GK{
+        margin-top:20px;
+    }
+    
+    .defenseur #LB,#RB{
+        margin-bottom:10px;
+    }
+
+    .card-player{
+        width: 34px;
+        height: 60px;
+    }      
+
+    /*! new card ajouter */
+    .new-card-player{
+        width: 36px;
+        height: 60px;
+        /* grid-template-rows:63% 25% ;  */
+        row-gap:1px;
+        font-size:7px;
+    }
+
+    .fa-pen-to-square,.fa-trash {
+        right:-26px;
+        font-size:9px;
+    }
+
+    .divIcons{
+        right:-10px;
+        width:10px;
+        height:28px;
+    }
+
+    .img-country,.img-club{
+        width:6px;
+     } 
+     
+     .img-player{
+        width:20px;
+    }
+
+    .image-name {
+        /* background-color: green; */
+        width: 100%;
+        gap:2px;
+        font-size:3px;
+        padding:2px;
+    }
+
+      .info {
+        /* background-color: rgba(154, 15, 15, 0.639); */
+        width: 92%;
+        height:75%;
+        padding:1px;
+        gap:.8px;
+        border-radius:1px;
+    }
+    
+    .info p{
+        width:24%;
+        /* background-color: red; */
+        font-size:2px;
+    } 
+
+    .info p span{
+        width:26%;
+        /* background-color: rgb(4, 0, 255); */
+        font-size:2px;
+    } 
+
+    .divContain{
+        width:98%;
+        /* grid-template-columns: 24% 76%; */
+        padding:6px 1px 1px;
+    }
+    .ratingCountryClub {
+        /* background-color: pink; */
+        width: 100%;
+        gap:3px;
+    }
+
+    .ratingCountryClub span {
+       font-size:5px;
+    }
+
+   
+    /* ! fin new card*/
+
+    .card-player .name-post{
+        padding:8px;
+        font-size:7px;
+        bottom:-12px;
+    }
+
+    #reservation{
+        gap:12px;
+        padding:4px 6px 14px 16px;
+    
+    }
+}
+
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+
+    section .contain-terrain .terrain {
+        height: 20rem;
+      }
+
+      .terrain .position  {
+        height: 2.6rem;
+        margin:-1px auto;
+        gap:8px;
+    }  
+
+    .attaquant{
+        width: 286px; 
+    }
+    
+    .milieu{
+        width: 320px; 
+    }
+    
+   .defenseur{
+        width: 370px; 
+    }
+
+    .defenseur #GK{
+        margin-top:29px;
+    }
+    
+    .defenseur #LB,#RB{
+        margin-bottom:18px;
+    }
+    
+    .card-player{
+        width: 70px;
+        height: 80px;
+    } 
+
+    .card-player .name-post{
+        padding:9px;
+        font-size:8px;
+        bottom:-17px;
+    }
+
+    .fa-pen-to-square,.fa-trash {
+        font-size:10px;
+    } 
+   
+    .divIcons{
+        right:-7px;
+        width:12px;
+        height:36px;
+    }
+
+     /*! new card ajouter */
+     .new-card-player{
+        width: 70px;
+        height: 80px;
+        /* row-gap:1px; */
+        font-size:7px;
+    }
+
+    .img-country,.img-club{
+        width:8px;
+     } 
+     
+     .img-player{
+        width:28px;
+    }
+
+    .image-name {
+        /* background-color: green;  */
+        width: 100%;
+         gap:2px;
+        font-size:3.8px;
+        padding:2px;
+    }
+
+      .info {
+        /* background-color: rgba(154, 15, 15, 0.639); */
+        width: 77%;
+        height:100%;
+        /* margin-top:2px; */
+    }
+    
+    .info p{
+        width:24%;
+        /* background-color: red; */
+        font-size:4px;
+    } 
+
+    .info p span{
+        width:30%;
+        /* background-color: rgb(4, 0, 255); */
+        font-size:4.3px;
+    } 
+
+    .divContain{
+        width:84%;
+        /* padding:6px 6px 1px 6px; */
+        margin:auto;
+        height: 100%;
+        /* background-color: #fff; */
+    }
+    .ratingCountryClub {
+        /* background-color: pink; */
+        width: 100%;
+        gap:4px;
+    }
+
+    .ratingCountryClub span {
+       font-size:6px;
+    }
+
+   
+    /* ! fin new card*/
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 10240px) {
+    
+    /* .contain-terrain {
+        width: 96%; 
+        margin: 0 auto;
+    } */
+
 }
